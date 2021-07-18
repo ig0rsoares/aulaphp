@@ -13,7 +13,51 @@
 	<h1>ORÇAMENTO</h1><hr><br>
 
 	<div class="conteudo">
-		<!-- AQUI VAI O CONTEUDO PHP DO ORÇAMENTO-->
+	<?php
+			$data = $_POST["data"];
+			$garantia = $_POST["garantia"];
+			$servico = $_POST["servico"];
+			$aparelho = $_POST["aparelho"];
+			$cliente = $_POST["cliente"];
+
+			echo "<h1>ORÇAMENTO</h1><br>";
+			echo "Data do orçamento $data<br>";
+			echo "Serviço a ser excutado : $servico<br>";
+
+			switch ($garantia){
+					case '1':
+						$taxa = 10;
+						break;
+					case '2':
+						$taxa = 20;
+						break;
+					case '3':
+						$taxa = 30;
+						break;		
+			}
+
+			if ($servico = 'Formatação') {
+				$valor = 120;
+			} elseif ($servico = 'Troca de Peças') {
+				$valor = 80;	
+			}
+			
+			$total = ($valor+$taxa);
+			switch ($servico){
+					case 'Formatação':
+						echo "Olá SR(a): $cliente <br> O Valor do seu orçamento é R$ $total,00<br>
+							  O tempo de garantia do serviço é $garantia meses.<br> Obrigado!";
+						break;
+					case 'Troca de Peças':
+						echo "Olá SR(a) $cliente <br> O Valor do seu orçamento é R$ $total,00<br>
+						O tempo de garantia do serviço é $garantia meses.<br> Obrigado!";
+						break;
+					case 'Outros':
+						echo "Olá SR(a) $cliente <br> Favor consultar um de nossos vendedores.<br> Obrigado!";
+						break;		
+			}
+		
+		?>
 		<br><br>
 
 		<p>Assinatura:________________________________________________</p><br>
