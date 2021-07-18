@@ -38,7 +38,8 @@
 
 			if ($servico = 'Formatação') {
 				$valor = 120;
-			} elseif ($servico = 'Troca de Peças') {
+			} 
+			if ($servico = 'Troca de Peças') {
 				$valor = 80;	
 			}
 			
