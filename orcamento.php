@@ -35,17 +35,20 @@
 						$taxa = 30;
 						break;		
 			}
-
-			if ($servico = 'Formatação') {
-				$valor = 120;
-			} 
-			if ($servico = 'Troca de Peças') {
-				$valor = 80;	
-			}
+			switch ($servico){
+				case 'Formatacao':
+					$valor = 120;
+					break;
+				case 'Troca de Peças':
+					$valor = 80;
+					break;
+				}
+		
+			
 			
 			$total = ($valor+$taxa);
 			switch ($servico){
-					case 'Formatação':
+					case 'Formatacao':
 						echo "Olá SR(a): $cliente <br> O Valor do seu orçamento é R$ $total,00<br>
 							  O tempo de garantia do serviço é $garantia meses.<br> Obrigado!";
 						break;
